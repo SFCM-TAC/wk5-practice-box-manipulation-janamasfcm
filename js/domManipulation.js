@@ -1,11 +1,11 @@
 
 function changeBoxColors(color) {
   console.log('Selected color: ' + color);
-  // TODO: Look at styles.css and choose a class
-  // to apply to all of the box elements in order
-  // to change their background color
-  // possible values of color are: 'red', 'blue', 'yellow'
-  // (consider using a switch statement!)
+  var x = document.getElementsByClassName("box");
+for (var i = 0; i < x.length; i++) {
+  x[i].style.backgroundColor = color;
+}
+
 }
 
 function addBox() {
