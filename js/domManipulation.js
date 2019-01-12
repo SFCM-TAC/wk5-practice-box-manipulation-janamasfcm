@@ -22,8 +22,13 @@ div.className = 'box';
   newBoxElement.addEventListener('click', handleBoxClick);
 }
 
-var selectedBoxes = [];
+
+var selectedBoxes = document.getElementsByClassName("box-selected");
 function removeSelectedBoxes() {
+  var parent = document.getElementById("boxes");
+  while (0<selectedBoxes.length) {
+    parent.removeChild(selectedBoxes[0]);
+}
   console.log('Removing selected boxes');
   // TODO: look at the selectedBoxes array and remove each of those
   // from their parent in the DOM tree (their parent is the div with id="boxes").
@@ -33,6 +38,11 @@ function removeSelectedBoxes() {
 /* Event Handlers */
 function handleBoxClick(event) {
   var boxElement = event.target;
+  if (boxElement.classList.contains("box-selected") === false) {
+    boxElement.classList.add("box-selected");
+  } else if (boxElement.classList.contains("box-selected") === true) {
+    boxElement.classList.remove("box-selected")
+  }
   console.log('Selecting box: ', boxElement);
   // TODO: add or remove the box from the array of selectedBoxes
   // TODO: looke at styles.css and choose a class (or multiple classes)
